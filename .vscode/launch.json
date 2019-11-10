@@ -1,0 +1,49 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Run All Tests",
+      "program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
+      "cwd": "${workspaceRoot}",
+      "args": [
+        "-u",
+        "bdd",
+        "--timeout",
+        "5000",
+        "--colors",
+        "--require",
+        "${workspaceFolder}/node_modules/chai/register-expect",
+        "${workspaceFolder}/node_modules/chai/register-assert",
+        "${workspaceFolder}/node_modules/chai/register-should",
+        "${workspaceFolder}/**/*.js"
+      ],
+      "internalConsoleOptions": "openOnSessionStart"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Run Individual Test",
+      "program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
+      "cwd": "${workspaceRoot}",
+      "args": [
+        "-u",
+        "bdd",
+        "--timeout",
+        "999999",
+        "--colors",
+        "--require",
+        "${workspaceFolder}/node_modules/chai/register-expect",
+        "${workspaceFolder}/node_modules/chai/register-assert",
+        "${workspaceFolder}/node_modules/chai/register-should",
+        "${file}"
+      ],
+      "internalConsoleOptions": "openOnSessionStart"
+    }
+  ]
+}

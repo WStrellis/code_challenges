@@ -1,0 +1,14 @@
+{
+  "name": "code_wars",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "mocha --recursive --require './node_modules/chai/register-assert.js, ./node_modules/chai/register-expect.js'"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.2.2"
+  }
+}
