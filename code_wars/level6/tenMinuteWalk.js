@@ -5,7 +5,32 @@ Note: you will always receive a valid array containing a random assortment of di
 */
 
 function isValidWalk(walk) {
-  return undefined
+  if (walk.length === 10) {
+    const start = [0, 0]
+    const end = [0, 0]
+    walk.forEach(i => {
+      switch (i) {
+        case 'n':
+          end[1]++
+          break
+
+        case 's':
+          end[1]--
+          break
+
+        case 'w':
+          end[0]--
+          break
+
+        case 'e':
+          end[0]++
+          break
+      }
+    })
+    return JSON.stringify(end) == JSON.stringify(start)
+  } else {
+    return false
+  }
 }
 
 module.exports = isValidWalk
