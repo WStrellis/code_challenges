@@ -10,8 +10,23 @@ describe("Test breakingRecords", function() {
 });
 
 const sockMerchant = require("./sock_merchant");
-describe.only("Tests for sockMerchant", function() {
+describe("Tests for sockMerchant", function() {
   it("Test 1", function() {
     expect(sockMerchant(9, [10, 20, 20, 10, 10, 30, 50, 10, 20])).to.equal(3);
+  });
+});
+
+const jumpingOnClouds = require("./jumpingOnClouds");
+describe.only("Tests for jumping on clouds", function() {
+  it("Test 1", function() {
+    const expected = 3;
+    const actual = jumpingOnClouds([0, 0, 0, 0, 1, 0]);
+    expect(actual).to.equal(expected);
+  });
+
+  it("Test 2", function() {
+    const expected = 4;
+    const actual = jumpingOnClouds(0, 0, 1, 0, 0, 1, 0);
+    expect(actual).to.equal(expected);
   });
 });
