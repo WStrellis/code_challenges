@@ -2,7 +2,7 @@ const assert = require('chai').assert
 const expect = require('chai').expect
 
 const two_sum = require('./two_sum')
-describe.skip('Tests for two_sum', function() {
+describe('Tests for two_sum', function() {
   it('Test for [1,2,3]', function() {
     assert.sameMembers(two_sum([1, 2, 3], 4), [0, 2])
   })
@@ -33,7 +33,7 @@ describe('Basic tests', function() {
 })
 
 const spinWords = require('./spin_words')
-describe.skip('Tests for spinWords', function() {
+describe('Tests for spinWords', function() {
   it('Test 1', function() {
     assert.equal(spinWords('Hey fellow warriors'), 'Hey wollef sroirraw')
   })
@@ -55,7 +55,7 @@ describe.skip('Tests for spinWords', function() {
 })
 
 const isValidWalk = require('./tenMinuteWalk')
-describe.only('Tests for isValidWalk', function() {
+describe('Tests for isValidWalk', function() {
   it('Test 1', function() {
     expect(
       isValidWalk(['w', 'e', 'w', 'e', 'w', 'e', 'w', 'e', 'w', 'e', 'w', 'e']),
@@ -80,4 +80,22 @@ describe.only('Tests for isValidWalk', function() {
       'should return true'
     ).to.be.true
   })
+})
+
+const easeTheBroker = require('./easeTheStockBroker')
+describe.only('Tests for easeTheStockBroker', function() {
+  it('Test 1', function() {
+    const expected ="Buy: 169850 Sell: 116000; Badly formed 1: CSCO 250.0 29 B ;"  
+    const actual = easeTheBroker("GOOG 300 542.0 B, AAPL 50 145.0 B, CSCO 250.0 29 B, GOOG 200 580.0 S")
+    expect(actual
+    ).to.equal(expected)
+  })
+
+  it('Test 2', function() {
+  const expected ="Buy: 29499 Sell: 0" 
+    const actual = easeTheBroker("ZNGA 1300 2.66 B, CLH15.NYM 50 56.32 B, OWW 1000 11.623 B, OGG 20 580.1 B")
+    expect(actual
+    ).to.equal(expected)
+  })
+
 })
