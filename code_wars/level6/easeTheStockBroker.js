@@ -1,8 +1,5 @@
 function balanceStatements(list){
   let bad = []
-  let buy = 0
-  let sell = 0
-  let bad = []
 let buy = 0
 let sell = 0
 if(!list.length){return `Buy: ${buy} Sell: ${sell}`}
