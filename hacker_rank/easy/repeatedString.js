@@ -17,16 +17,22 @@ function repeatedString(s, n) {
 */
 
 function repeatedString(s, n) {
-  // divide n by length of s and multiply number of a's in s by result
-  let count = s.match(/a/g).length * Math.floor(n / s.length);
-  // count number of a's in remainder and add to count
-  let remainder = n % s.length;
-  console.log('remainder', remainder);
-  if (remainder) {
-    let matchesInRemainder = s.slice(0, remainder).match(/a/g);
-    matchesInRemainder && (count += matchesInRemainder.length);
+  const regex = new RegExp('a', 'g');
+  //check if any a's exist
+  let count = s.match(regex);
+  // if the string has a's calculate result, else return 0
+  if (count) {
+    // divide n by length of s and multiply number of a's in s by result
+    count = count.length * Math.floor(n / s.length);
+    // count number of a's in remainder and add to count
+    let remainder = n % s.length;
+    if (remainder) {
+      let matchesInRemainder = s.slice(0, remainder).match(regex);
+      matchesInRemainder && (count += matchesInRemainder.length);
+    }
+    return count;
+  } else {
+    return 0;
   }
-
-  return count;
 }
 module.exports = repeatedString;
