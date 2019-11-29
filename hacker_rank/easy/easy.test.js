@@ -59,7 +59,7 @@ describe('Tests for repeated string', function() {
 });
 
 const countingValleys = require('./countingValleys');
-describe.only('Tests for countingValleys', function() {
+describe('Tests for countingValleys', function() {
   it('Test 1: one valley', function() {
     const expected = 1;
     const actual = countingValleys(8, 'UDDDUDUU');
@@ -75,6 +75,27 @@ describe.only('Tests for countingValleys', function() {
   it('Test 3: two valleys', function() {
     const expected = 2;
     const actual = countingValleys(8, 'UDDUDDUD');
+    expect(actual).to.equal(expected);
+  });
+});
+
+const checkMagazine = require('./checkMagazine');
+describe.only('Tests for check magazine', function() {
+  it('Test 1: ', function() {
+    const expected = 'Yes';
+    const actual = checkMagazine(
+      ['give', 'me', 'me', 'one', 'grand', 'today', 'night'],
+      ['give', 'one', 'grand', 'today']
+    );
+    expect(actual).to.equal(expected);
+  });
+
+  it('Test 2: ', function() {
+    const expected = 'No';
+    const actual = checkMagazine(
+      ['two', 'times', 'three', 'is', 'not', 'four'],
+      ['two', 'times', 'two', 'is', 'four']
+    );
     expect(actual).to.equal(expected);
   });
 });
