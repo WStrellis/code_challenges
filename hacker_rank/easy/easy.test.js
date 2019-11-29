@@ -32,7 +32,7 @@ describe('Tests for jumping on clouds', function() {
 });
 
 const repeatedString = require('./repeatedString');
-describe.only('Tests for repeated string', function() {
+describe('Tests for repeated string', function() {
   it('Test 1', function() {
     const expected = 7;
     const actual = repeatedString('aba', 10);
@@ -54,6 +54,27 @@ describe.only('Tests for repeated string', function() {
   it('Test 4', function() {
     const expected = 0;
     const actual = repeatedString('gfcecbg', 949602);
+    expect(actual).to.equal(expected);
+  });
+});
+
+const countingValleys = require('./countingValleys');
+describe.only('Tests for countingValleys', function() {
+  it('Test 1: one valley', function() {
+    const expected = 1;
+    const actual = countingValleys(8, 'UDDDUDUU');
+    expect(actual).to.equal(expected);
+  });
+
+  it('Test 2: no valleys', function() {
+    const expected = 0;
+    const actual = countingValleys(4, 'UUDD');
+    expect(actual).to.equal(expected);
+  });
+
+  it('Test 3: two valleys', function() {
+    const expected = 2;
+    const actual = countingValleys(8, 'UDDUDDUD');
     expect(actual).to.equal(expected);
   });
 });
