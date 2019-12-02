@@ -20,12 +20,9 @@ function bubbleSort(a, dir = 'a') {
   let operation = dir === 'd' ? desc : asc;
 
   for (let i = 0; i < a.length; i++) {
-    let last = a.length;
-
-    for (let j = 0; j < last; j++) {
+    for (let j = 0; j < a.length - i; j++) {
       operation(a, j);
     }
-    last--;
   }
   return a;
 }
