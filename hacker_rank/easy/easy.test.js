@@ -80,7 +80,7 @@ describe('Tests for countingValleys', function() {
 });
 
 const checkMagazine = require('./checkMagazine');
-describe.only('Tests for check magazine', function() {
+describe('Tests for check magazine', function() {
   it('Test 1: ', function() {
     const expected = 'Yes';
     const actual = checkMagazine(
@@ -96,6 +96,15 @@ describe.only('Tests for check magazine', function() {
       ['two', 'times', 'three', 'is', 'not', 'four'],
       ['two', 'times', 'two', 'is', 'four']
     );
+    expect(actual).to.equal(expected);
+  });
+});
+
+const maximumToys = require('./mark_and_toys');
+describe.only('Tests for maximumToys', function() {
+  it('Test 1: ', function() {
+    const expected = 4;
+    const actual = maximumToys([1, 12, 5, 111, 200, 1000, 10], 50);
     expect(actual).to.equal(expected);
   });
 });
