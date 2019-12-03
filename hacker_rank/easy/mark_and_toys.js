@@ -5,7 +5,6 @@ Given x dollars and an array of n prices determine the maximum number of items t
 
 function maximumToys(prices, k) {
   let maxToys = 0;
-  // filter out any toys exceeding the price
   // sort prices
   if (prices.length) {
     prices = prices.sort((a, b) => a - b);
