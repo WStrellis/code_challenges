@@ -17,21 +17,37 @@ and true if the number is more than or equal to x, false if not:
 x  will always be a positive integer, and s will never be empty
 */
 
+// My solution
 function bears(x, s) {
-  const matingPairs = ['', false];
+  let matingPairs = '';
   let numPairs = 0;
-  // get matches
-  console.log(typeof s);
-  const matches = s.matchAll(/B8|8B/g);
-  // const matches = /B8|8B/g.exec(s);
-  // if no matches return matingPairs
-  // else count match results and add to concat to first index of matingPairs
-  /*  
-  if (matches) {
-    console.log([...matches]);
+  let idx = 0;
+
+  function isPair(str, i) {
+    let combined = str[i] + str[i + 1];
+    return combined === '8B' || combined === 'B8' ? combined : false;
   }
-   */
-  return matches;
+
+  while (idx < s.length - 1) {
+    const result = isPair(s, idx);
+    if (result) {
+      matingPairs += result;
+      numPairs++;
+      idx += 2;
+    } else {
+      idx++;
+    }
+  }
+
+  return [matingPairs, numPairs >= x];
 }
+
+/* Other's solution
+
+function bears(x, s) {
+  var pairs = s.match(/(8B)|(B8)/g) || [];
+  return [pairs.join(''), pairs.length >= x];
+}
+*/
 
 module.exports = bears;
