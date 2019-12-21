@@ -103,7 +103,7 @@ describe('Tests for easeTheStockBroker', function() {
 });
 
 const bears = require('./pairs_of_bears');
-describe.only('Tests for pairs_of_bears', function() {
+describe('Tests for pairs_of_bears', function() {
   it('Test 1', function() {
     const expected = ['B8B8B8', false];
     const actual = bears(7, '8j8mBliB8gimjB8B8jlB');
@@ -124,5 +124,24 @@ describe.only('Tests for pairs_of_bears', function() {
     expect(actual)
       .to.be.a('array')
       .that.includes.ordered.members(expected);
+  });
+});
+
+const tickets = require('./vasya_clerk');
+describe.only('Tests for vasya-clerk', function() {
+  it('Test 1', function() {
+    const expected = 'YES';
+    const actual = tickets([25, 25, 50, 50]);
+    expect(actual).to.equal(expected);
+  });
+  it('Test 2', function() {
+    const expected = 'NO';
+    const actual = tickets([25, 100]);
+    expect(actual).to.equal(expected);
+  });
+  it('Test 3', function() {
+    const expected = 'NO';
+    const actual = tickets([25, 25, 50, 50, 100]);
+    expect(actual).to.equal(expected);
   });
 });
