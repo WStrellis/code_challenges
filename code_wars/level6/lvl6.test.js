@@ -128,7 +128,7 @@ describe('Tests for pairs_of_bears', function() {
 });
 
 const tickets = require('./vasya_clerk');
-describe.only('Tests for vasya-clerk', function() {
+describe('Tests for vasya-clerk', function() {
   it('Test 1', function() {
     const expected = 'YES';
     const actual = tickets([25, 25, 50, 50]);
@@ -143,5 +143,18 @@ describe.only('Tests for vasya-clerk', function() {
     const expected = 'NO';
     const actual = tickets([25, 25, 50, 50, 100]);
     expect(actual).to.equal(expected);
+  });
+});
+
+const Lamp = require('./the_lamp');
+describe.only('Tests for The_Lamp', function() {
+  const myLamp = new Lamp({ color: 'Blue' });
+  it('Lamp', function() {
+    expect(myLamp.color).to.equal('Blue');
+    expect(myLamp.on).to.equal(false);
+    expect(myLamp.state()).to.equal('The lamp is off.');
+    // now switch it on
+    myLamp.toggleSwitch();
+    expect(myLamp.state()).to.equal('The lamp is on.');
   });
 });
