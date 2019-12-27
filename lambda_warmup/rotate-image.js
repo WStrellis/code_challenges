@@ -27,21 +27,19 @@ should return
   */
 
 function rotateImage(arr) {
-  // make a copy of arr
-  let copy = [...arr];
+  // make array of empty arrays
+  let newArr = Array.from(Array(arr.length), () => []);
+  // the array to insert number into
+  let targetArr = arr.length - 1;
   // loop over each array
-  let cursor;
-  arr.forEach((i, iIndx) => {
-    cursor = arr.length - 1;
-    console.log('cursor', cursor);
+  arr.forEach(i => {
     i.forEach(j => {
-      copy[cursor][iIndx] = j;
-      cursor--;
-      console.log('cursor', cursor);
+      newArr[targetArr].push(j);
+      targetArr === 0 ? (targetArr = arr.length - 1) : targetArr--;
     });
   });
 
-  return copy;
+  return newArr;
 }
 
 module.exports = rotateImage;

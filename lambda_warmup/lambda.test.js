@@ -47,10 +47,10 @@ describe.only('Tests for rotateImage', function() {
       [1, 2],
       [3, 4]
     ]);
-    expect(actual).to.have.ordered.members(expected);
+    expect(actual).to.deep.equal(expected);
   });
 
-  it.skip('Test 2', function() {
+  it('Test 2', function() {
     const expected = [
       [9, 0, 1, 2, 3],
       [9, 0, 1, 2, 3],
@@ -66,6 +66,6 @@ describe.only('Tests for rotateImage', function() {
       [4, 4, 8, 2, 2],
       [5, 5, 9, 3, 3]
     ]);
-    expect(actual).to.have.ordered.members(expected);
+    expect(actual).to.deep.equal(expected);
   });
 });
