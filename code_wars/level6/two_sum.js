@@ -6,7 +6,6 @@ function two_sum(numbers, target) {
   let ind1 = 0
   let ind2 = 0
   // loop over each item in array
-  debugger
   outer: for (let current1 of numbers) {
     // loop over items again
     for (let current2 of numbers) {
