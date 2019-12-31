@@ -11,6 +11,7 @@ function kangaroo(x1, v1, x2, v2) {
     x2 = x2 + v2
     if (x1 === x2) {
       met = 'YES'
+      break
     }
   }
   return met
