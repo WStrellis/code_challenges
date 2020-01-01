@@ -110,7 +110,7 @@ describe('Tests for maximumToys', function() {
 })
 
 const kangaroo = require('./kangaroo')
-describe.only('Tests for kangaroo', function() {
+describe('Tests for kangaroo', function() {
   it('Test 1', function() {
     expect(kangaroo(0, 3, 4, 2)).to.eq('YES')
   })
@@ -125,5 +125,12 @@ describe.only('Tests for kangaroo', function() {
 
   it('Test 4', function() {
     expect(kangaroo(43, 2, 70, 2)).to.eq('NO')
+  })
+})
+
+const miniMaxSum = require('./minimax_sum')
+describe.only('Tests for miniMaxSum', function() {
+  it('Test 1', function() {
+    expect(miniMaxSum([1, 2, 3, 4, 5])).to.eq('10 14')
   })
 })
