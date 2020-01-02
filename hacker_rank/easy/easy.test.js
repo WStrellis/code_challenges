@@ -129,8 +129,27 @@ describe('Tests for kangaroo', function() {
 })
 
 const miniMaxSum = require('./minimax_sum')
-describe.only('Tests for miniMaxSum', function() {
+describe('Tests for miniMaxSum', function() {
   it('Test 1', function() {
     expect(miniMaxSum([1, 2, 3, 4, 5])).to.eq('10 14')
+  })
+})
+
+const getTotalX = require('./between_two_sets')
+describe.only('Tests for Between Two Sets', function() {
+  it('Test 1', function() {
+    expect(getTotalX([2, 4], [16, 32, 96])).to.eq(3)
+  })
+
+  it('Test 2', function() {
+    expect(getTotalX([3, 9, 6], [36, 72])).to.eq(2)
+  })
+
+  it('Test 3', function() {
+    expect(getTotalX([1], [100])).to.eq(9)
+  })
+
+  it('Test 4', function() {
+    expect(getTotalX([1], [72, 48])).to.eq(8)
   })
 })
