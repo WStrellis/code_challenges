@@ -15,8 +15,7 @@ function getTotalX(a, b) {
   let between = 0
   let aOK
   let bOK
-  // debugger
-  for (let i = 0; i < b[b.length - 1]; i++) {
+  for (let i = 0; i <= b[b.length - 1]; i++) {
     aOK = true
     bOK = true
     arr1: for (let j = 0; j < a.length; j++) {
@@ -39,7 +38,6 @@ function getTotalX(a, b) {
 
     if (aOK && bOK) {
       between++
-      console.log(i)
     }
   }
 
