@@ -1,19 +1,17 @@
 function breakingRecords(scores) {
-  let scoresArr = scores.slice(0).split(' ')
-  let high = +scoresArr[0]
-  let low = +scoresArr[0]
+  let high = scores[0]
+  let low = scores[0]
   let brokeRecord = [0, 0]
-  for (let i = 0; i < scoresArr.length; i++) {
-    if (scoresArr[i] < low) {
-      low = +scoresArr[i]
+  for (let i = 0; i < scores.length; i++) {
+    if (scores[i] < low) {
+      low = scores[i]
       brokeRecord[1] += 1
-    } else if (scoresArr[i] > high) {
-      high = +scoresArr[i]
+    } else if (scores[i] > high) {
+      high = scores[i]
       brokeRecord[0] += 1
     }
   }
 
   return `${brokeRecord[0]} ${brokeRecord[1]}`
 }
-
 module.exports = { breakingRecords }

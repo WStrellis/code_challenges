@@ -1,11 +1,11 @@
 const { breakingRecords } = require('./breaking_records')
-describe('Test breakingRecords', function() {
+describe.only('Test breakingRecords', function() {
   it('Test 1', function() {
-    assert.equal(breakingRecords('3 4 21 36 10 28 35 5 24 42'), '4 0')
+    assert.equal(breakingRecords([3, 4, 21, 36, 10, 28, 35, 5, 24, 42]), '4 0')
   })
 
   it('Test 2', function() {
-    assert.equal(breakingRecords('10 5 20 20 4 5 2 25 1'), '2 4')
+    assert.equal(breakingRecords([10, 5, 20, 20, 4, 5, 2, 25, 1]), '2 4')
   })
 })
 
@@ -136,7 +136,7 @@ describe('Tests for miniMaxSum', function() {
 })
 
 const getTotalX = require('./between_two_sets')
-describe.only('Tests for Between Two Sets', function() {
+describe('Tests for Between Two Sets', function() {
   it('Test 1', function() {
     expect(getTotalX([2, 4], [16, 32, 96])).to.eq(3)
   })
