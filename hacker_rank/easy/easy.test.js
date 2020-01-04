@@ -1,5 +1,5 @@
 const { breakingRecords } = require('./breaking_records')
-describe.only('Test breakingRecords', function() {
+describe('Test breakingRecords', function() {
   it('Test 1', function() {
     assert.equal(breakingRecords([3, 4, 21, 36, 10, 28, 35, 5, 24, 42]), '4 0')
   })
@@ -151,5 +151,28 @@ describe('Tests for Between Two Sets', function() {
 
   it('Test 4', function() {
     expect(getTotalX([1], [72, 48])).to.eq(8)
+  })
+})
+
+const diagonalDifference = require('./diagonal_difference')
+describe.only('Tests for Diagonal Difference', function() {
+  it('Test 1', function() {
+    expect(
+      diagonalDifference([
+        [11, 2, 4],
+        [4, 5, 6],
+        [10, 8, -12]
+      ])
+    ).to.eq(15)
+  })
+
+  it('Test 2', function() {
+    expect(
+      diagonalDifference([
+        [1, 2, 3],
+        [4, 5, 6],
+        [9, 8, 9]
+      ])
+    ).to.eq(2)
   })
 })
