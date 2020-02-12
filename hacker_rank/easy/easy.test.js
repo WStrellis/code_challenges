@@ -155,7 +155,7 @@ describe('Tests for Between Two Sets', function() {
 })
 
 const diagonalDifference = require('./diagonal_difference')
-describe.only('Tests for Diagonal Difference', function() {
+describe('Tests for Diagonal Difference', function() {
   it('Test 1', function() {
     expect(
       diagonalDifference([
@@ -174,5 +174,28 @@ describe.only('Tests for Diagonal Difference', function() {
         [9, 8, 9]
       ])
     ).to.eq(2)
+  })
+})
+
+const makingAnagrams = require('./making_anagrams')
+describe.only('Tests for Making Anagrams', function() {
+  it('Test 1', function() {
+    expect(makingAnagrams('cde', 'abc')).to.eq(4)
+  })
+
+  it('Test 2', function() {
+    expect(makingAnagrams('abc', 'amnop')).to.eq(6)
+  })
+
+  it('Test 3', function() {
+    expect(makingAnagrams('', 'bltry')).to.eq(5)
+  })
+
+  it('Test 4', function() {
+    expect(makingAnagrams('', '')).to.eq(0)
+  })
+
+  it('Test 5', function() {
+    expect(makingAnagrams('mop', 'mop')).to.eq(0)
   })
 })
