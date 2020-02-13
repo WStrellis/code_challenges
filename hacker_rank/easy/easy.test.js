@@ -178,7 +178,7 @@ describe('Tests for Diagonal Difference', function() {
 })
 
 const makingAnagrams = require('./making_anagrams')
-describe.only('Tests for Making Anagrams', function() {
+describe('Tests for Making Anagrams', function() {
   it('Test 1', function() {
     expect(makingAnagrams('cde', 'abc')).to.eq(4)
   })
@@ -197,5 +197,28 @@ describe.only('Tests for Making Anagrams', function() {
 
   it('Test 5', function() {
     expect(makingAnagrams('mop', 'mop')).to.eq(0)
+  })
+})
+
+const gameOfThrones = require('./game_of_thrones_I')
+describe.only('Tests for Game of Thrones 1', function() {
+  it('Test 1', function() {
+    expect(gameOfThrones('bltry')).to.eq('NO')
+  })
+
+  it('Test 2', function() {
+    expect(gameOfThrones('a')).to.eq('YES')
+  })
+
+  it('Test 3', function() {
+    expect(gameOfThrones('cdcdcdcdeeeef')).to.eq('YES')
+  })
+
+  it('Test 4', function() {
+    expect(gameOfThrones('madam')).to.eq('YES')
+  })
+
+  it('Test 5', function() {
+    expect(gameOfThrones('cdcdcdcdeekeef')).to.eq('NO')
   })
 })

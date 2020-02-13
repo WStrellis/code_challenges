@@ -15,3 +15,12 @@ s only contains [a-z]
 Output:
 'YES' || 'NO'
 */
+
+function gameOfThrones(s) {
+  // create array with same length as  alphabet. Initalize all values to 0
+  // traverse string and count occurences of all characters
+  // if there is more than one odd value return NO, else return YES
+  return null
+}
+
+module.exports = gameOfThrones
