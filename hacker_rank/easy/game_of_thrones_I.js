@@ -28,7 +28,7 @@ function gameOfThrones(s) {
   let isPalindrome = true
   let charCountArr = Object.entries(charCount)
   for (let i = 0; i < charCountArr.length; i++) {
-    if (i[1] % 2 !== 0) {
+    if (charCountArr[i][1] % 2 !== 0) {
       oddCount++
     }
     if (oddCount > 1) {
