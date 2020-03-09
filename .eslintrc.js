@@ -1,7 +1,13 @@
 module.exports = {
     env: {
         es6: true,
-        node: true
+        node: true,
+        mocha: true
+    },
+    globals: {
+        expect: 'readonly,',
+        should: 'readonly',
+        assert: 'readonly'
     },
     extends: ['eslint:recommended'],
     parserOptions: {
