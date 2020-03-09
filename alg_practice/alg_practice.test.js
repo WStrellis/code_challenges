@@ -38,7 +38,7 @@ describe.skip('Tests for Merge Sort', function() {
     })
 })
 
-const { DoubleLL, ListNode } = require('./double_linked_list')
+const { DoubleLL, ListNode, Stack } = require('./double_linked_list')
 
 describe('Tests for ListNode', function() {
     let node = null
@@ -168,5 +168,58 @@ describe('Tests for Double Linked List', function() {
 
     it('should have  length 1 when initialized with value', function() {
         expect(dllSingle.length).to.eq(1)
+    })
+})
+
+describe('Tests for Stack', function() {
+    let stack
+    let node1
+    let node2
+    let node3
+
+    beforeEach(function() {
+        stack = new Stack()
+        node1 = new ListNode(3)
+        node2 = new ListNode(6)
+        node3 = new ListNode(9)
+    })
+
+    afterEach(function() {
+        stack = null
+        node1 = null
+        node2 = null
+        node3 = null
+    })
+
+    it('Should have length 0 when initialized without a value', function() {
+        expect(stack.length).to.eq(0)
+    })
+
+    it('should push a new node onto the stack', function() {
+        stack.push(node1)
+        expect(Object.is(stack.head, stack.tail)).to.eq(true)
+        expect(stack.length).to.eq(1)
+    })
+
+    it('should remove head from stack', function() {
+        stack.push(node1)
+        stack.push(node2)
+        expect(Object.is(stack.head, node2)).to.eq(true)
+        expect(node1.prev).to.eq(node2)
+        expect(stack.head.next).to.eq(node1)
+        expect(stack.length).to.eq(2)
+
+        let result = stack.pop()
+        expect(result).to.eq(6)
+        expect(Object.is(stack.head, node1)).to.eq(true)
+        expect(stack.head.prev).to.eq(null)
+        expect(stack.length).to.eq(1)
+
+        // remove all items from stack
+        result = stack.pop()
+        expect(result).to.eq(3)
+        expect(stack.head).to.eq(null)
+        expect(stack.tail).to.eq(null)
+        expect(stack.length).to.eq(0)
     })
 })

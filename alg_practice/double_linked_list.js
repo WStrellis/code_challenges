@@ -45,14 +45,38 @@ class DoubleLL {
         this.tail = initNode
         this.length = initNode ? 1 : 0
     }
-
-    insert(value) {
-        /* add an item to the head of the dll */
-    } //end insert
-
-    remove(value) {
-        /* remove an item from the tail of the dll */
-    } // end remove
 }
 
-module.exports = { ListNode, DoubleLL }
+class Stack extends DoubleLL {
+    constructor(value = null) {
+        super(value)
+        this.push = this.push.bind(this)
+        this.pop = this.pop.bind(this)
+    }
+    push(newNode) {
+        /* add an item to the head of the dll */
+        if (!this.head && !this.tail) {
+            this.head = newNode
+            this.tail = newNode
+        } else {
+            this.head.insertBefore(newNode)
+            this.head = newNode
+        }
+        this.length++
+    } //end push
+
+    pop() {
+        /* remove the first item from the dll */
+        const popped = this.head.value
+        if (Object.is(this.head, this.tail)) {
+            this.head = this.tail = null
+        } else {
+            this.head = this.head.next
+            this.head.prev = null
+        }
+        this.length--
+        return popped
+    } // end pop
+}
+
+module.exports = { ListNode, DoubleLL, Stack }
