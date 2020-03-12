@@ -1,9 +1,9 @@
 {
-  "singleQuote": true,
-  "semi": false,
-  "tabWidth": 4,
-  "jsxSingleQuote": true,
-  "bracketSpacing": true,
-  "endOfLine": "lf",
-  "javascriptEnable": ["javasript"]
+    "singleQuote": false,
+    "semi": false,
+    "tabWidth": 4,
+    "jsxSingleQuote": false,
+    "bracketSpacing": true,
+    "endOfLine": "lf",
+    "javascriptEnable": ["javascript"]
 }
