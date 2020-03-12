@@ -8,7 +8,18 @@ output: int
 */
 
 function sherlockAndAnagrams(s) {
-    return
+    let position = 0
+    const maxLength = Math.round(s.length / 2)
+    let currentLength = 1
+    const anagrams = new Map()
+    while (currentLength <= maxLength) {
+        //?
+    }
+    let anagramCount = 0
+    for (let [k, v] of anagrams) {
+        anagramCount += v
+    }
+    return anagramCount
 }
 
 module.exports = sherlockAndAnagrams
