@@ -26,16 +26,45 @@ You can print different paths in any order, but you should keep the order of nod
  * @return {number[][]}
  */
 var allPathsSourceTarget = function (graph) {
+    const targetNode = graph.length - 1
     // DFT
     // create adjacencies
-    const adj_list = graph.reduce((g, curr, ind) => {
-        g.set(ind, curr)
-    }, new Map())
+    const adj_list = new Map()
+    graph.forEach((item, index) => adj_list.set(index, item))
+    // const adj_list = graph.reduce((g, curr, ind) => {
+    //     g.set(ind, curr)
+    // }, new Map())
     // create stack
     const stack = [[0]]
     // track visited
     const visited = new Set()
     // track paths to last node in graph
     const pathsToLast = []
-    while (stack.length)
+    while (stack.length) {
+        // pop last path from stack
+        const currentPath = stack.pop()
+        // get last node in path
+        const currentNode = currentPath[currentPath.length - 1]
+        // check if currentPath is a path to target
+        if (currentNode === targetNode) pathsToLast.push(currentPath)
+        // check if  currentNode has been visited
+        if (!visited.has(currentNode)) {
+            // add node to visited
+            visited.add(currentNode)
+            // get all neighbors of current node and add to stack
+            const neighbors = adj_list.get(currentNode)
+            neighbors.forEach(neighbor => {
+                stack.push([...currentPath, neighbor])
+            })
+        }
+
+
+    }
+    return pathsToLast
 };
+
+module.exports = allPathsSourceTarget
+
+console.log((allPathsSourceTarget([[1, 2], [3], [3], []])))
+console.log((allPathsSourceTarget([[4, 3, 1], [3, 2, 4], [3], [4], []]))) // expected [[0,4],[0,3,4],[0,1,3,4],[0,1,2,3,4],[0,1,4]]
+
