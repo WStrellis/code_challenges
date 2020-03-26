@@ -31,13 +31,8 @@ var allPathsSourceTarget = function (graph) {
     // create adjacencies
     const adj_list = new Map()
     graph.forEach((item, index) => adj_list.set(index, item))
-    // const adj_list = graph.reduce((g, curr, ind) => {
-    //     g.set(ind, curr)
-    // }, new Map())
     // create stack
     const stack = [[0]]
-    // track visited
-    const visited = new Set()
     // track paths to last node in graph
     const pathsToLast = []
     while (stack.length) {
@@ -47,17 +42,12 @@ var allPathsSourceTarget = function (graph) {
         const currentNode = currentPath[currentPath.length - 1]
         // check if currentPath is a path to target
         if (currentNode === targetNode) pathsToLast.push(currentPath)
-        // check if  currentNode has been visited
-        if (!visited.has(currentNode)) {
-            // add node to visited
-            visited.add(currentNode)
-            // get all neighbors of current node and add to stack
-            const neighbors = adj_list.get(currentNode)
-            neighbors.forEach(neighbor => {
-                stack.push([...currentPath, neighbor])
-            })
-        }
-
+        // get all neighbors of current node and add to stack
+        const neighbors = adj_list.get(currentNode)
+        neighbors.forEach(neighbor => {
+            stack.push([...currentPath, neighbor])
+        })
+        // }
 
     }
     return pathsToLast
