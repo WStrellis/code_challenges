@@ -3,8 +3,8 @@
     "version": "1.0.0",
     "description": "",
     "scripts": {
-        "test": "mocha --recursive --require './node_modules/chai/register-assert.js, ./node_modules/chai/register-expect.js'",
-        "test:watch": "mocha --watch --reporter min  --require './node_modules/chai/register-assert.js, ./node_modules/chai/register-expect.js'"
+        "test": "mocha --recursive **/*.test.js",
+        "test:watch": "mocha --watch --watch-files **/*.test.js --watch-ignore ./node_modules  "
     },
     "author": "",
     "license": "ISC",
