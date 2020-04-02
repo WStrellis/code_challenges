@@ -229,7 +229,7 @@ describe('Tests for Game of Thrones 1', function () {
 })
 
 const { LinkNode, removeNodes, createLL } = require('./delete_node')
-describe.only('Tests for deleteNode', function () {
+describe('Tests for deleteNode', function () {
     it('test 1', function () {
         const head = createLL([1, 2, 3])
         expect(head.data).to.eq(1)

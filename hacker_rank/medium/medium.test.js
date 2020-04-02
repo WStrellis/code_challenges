@@ -1,5 +1,5 @@
 const strokesRequired = require('./bucket_paint')
-describe.only('Tests for strokesRequired', function () {
+describe('Tests for strokesRequired', function () {
     it('test 1', function () {
         let actual = strokesRequired(['aabba', 'aabba', 'aaacb'])
         let expected = 5
