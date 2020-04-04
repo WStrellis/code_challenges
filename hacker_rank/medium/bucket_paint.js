@@ -75,8 +75,7 @@ function strokesRequired(picture) {
     // initalize DFT current
     let current
 
-    let running = true
-    while (running) {
+    while (true) {
         current = stack.pop()
         if (!current) {
             // all adjacent cells of same color have been found.
@@ -87,14 +86,13 @@ function strokesRequired(picture) {
                 current = unvisited
             } else {
                 // all cells have been painted
-                running = false
+                break
             }
-        } else {
-            // add current cell to visited
-            visited.add(JSON.stringify(current))
-            // get neighbors of current cell that are same color and add to stack
-            stack = [...stack, ...getNeighbors(current, picture, visited)]
         }
+        // add current cell to visited
+        visited.add(JSON.stringify(current))
+        // get neighbors of current cell that are same color and add to stack
+        stack = [...stack, ...getNeighbors(current, picture, visited)]
     }
 
     return strokes
